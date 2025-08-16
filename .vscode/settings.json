@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": true,   // 保存した瞬間に自動でコード整形する
+    "editor.tabSize": 2,           // インデントをスペース2個に統一する
+    "files.autoSave": "onFocusChange", // 他のウィンドウに移った時に自動保存
+    "prettier.printWidth": 100,    // 1行の長さを100文字で改行する
+    "prettier.singleQuote": true   // 文字列はシングルクォート ' を使う
+  }
+  
