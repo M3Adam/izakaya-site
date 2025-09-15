@@ -13,21 +13,19 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="居酒屋 えむら" />
   <meta property="og:description" content="須坂駅前の居酒屋 えむら。旬の食材と地酒をご用意。ご予約はお電話で。" />
-  <meta property="og:image" content="./images/building/entrance.jpg" />
+  <meta property="og:image" content="/images/ogp.jpg" />
   <meta property="og:url" content="https://example.com" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <!--
-  LCP: hero 先読み（avif が無い場合のフォールバック用に jpg も）
-  <link rel="preload" as="image" href="./images/hero.avif" imagesrcset="./images/hero-1280.avif 1280w, /images/hero-1920.avif 1920w, /images/hero-2560.avif 2560w" imagesizes="100vw" fetchpriority="high">
-  <link rel="preload" as="image" href="./images/hero.jpg" fetchpriority="high">
-  -->
+  <!-- LCP: hero 先読み（avif が無い場合のフォールバック用に jpg も） -->
+  <link rel="preload" as="image" href="/images/hero.avif" imagesrcset="/images/hero-1280.avif 1280w, /images/hero-1920.avif 1920w, /images/hero-2560.avif 2560w" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/hero.jpg" fetchpriority="high">
 
   <!-- PWA（任意だが設置） -->
-  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="manifest" href="/manifest.webmanifest">
 
   <style>
     :root{
@@ -166,15 +164,11 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero" id="top">
-      <div class="hero__media" aria-hidden="true">
-        <img
-          src="./images/building/ChatGPT Image 2025年8月24日 16_07_44.png"
-          alt=""
-          width="1920" height="1080"
-          style="width:100%;height:100%;object-fit:cover;filter:brightness(.45) contrast(1.08);"
-          fetchpriority="high" decoding="async"
-        >
-      </div>      
+      <picture class="hero__media" aria-hidden="true">
+        <source type="image/avif" srcset="/images/hero-1280.avif 1280w, /images/hero-1920.avif 1920w, /images/hero-2560.avif 2560w" sizes="100vw">
+        <source type="image/webp" srcset="/images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w" sizes="100vw">
+        <img src="/images/hero.jpg" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+      </picture>
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="hero__inner">
         <h1>旬と地酒、気取らず旨い。</h1>
@@ -192,14 +186,14 @@
       <p class="lead">信州の旬を気軽に。毎朝の仕入れでメニューが少しずつ変わります。伝統の技と現代の感性が織りなす、新しい居酒屋の形をお楽しみください。</p>
       <div class="grid grid--2">
         <div class="card fade-in">
-          <img src="./images/building/entrance.jpg" alt="玄関" width="1200" height="800" loading="lazy" decoding="async" />
+          <img src="/images/about-1.jpg" alt="料理写真" width="1200" height="800" loading="lazy" decoding="async" />
           <div class="card__body">
             <strong style="color: var(--brand); font-size: 1.15rem;">看板料理</strong>
             <p>串焼き・おでん・信州味噌を使った一品など。日本酒は常時10種前後。職人の技が光る本格的な料理をお手頃価格で。</p>
           </div>
         </div>
         <div class="card fade-in">
-          <img src="./images/menu/beer.jpg" alt="ビール" width="1200" height="800" loading="lazy" decoding="async" />
+          <img src="/images/about-2.jpg" alt="店内カウンター" width="1200" height="800" loading="lazy" decoding="async" />
           <div class="card__body">
             <strong style="color: var(--brand); font-size: 1.15rem;">居心地</strong>
             <p>お一人様歓迎。カウンターから気軽に声をかけてください。温かみのある空間で、心からくつろげる時間をお過ごしください。</p>
@@ -235,11 +229,11 @@
       </div>
 
       <div class="gallery">
-        <img src="./images/menu/chips.jpg" alt="チップス" width="800" height="800" class="fade-in" loading="lazy" decoding="async" />
-        <img src="./images/menu/lunchbox.jpg" alt="ランチボックス" width="800" height="800" class="fade-in" loading="lazy" decoding="async" />
-        <img src="./images/menu/colonaBeer&amp;poakSteak.jpg" alt="コロナビールとポークステーキ" width="800" height="800" class="fade-in" loading="lazy" decoding="async" />
-        <img src="./images/menu/horseMeatSashimi.jpg" alt="馬肉刺身" width="800" height="800" class="fade-in" loading="lazy" decoding="async" />
-      </div>      
+        <img src="/images/menu-1.jpg" alt="焼き物" width="800" height="800" class="fade-in" loading="lazy" decoding="async" />
+        <img src="/images/menu-2.jpg" alt="おでん" width="800" height="800" class="fade-in" loading="lazy" decoding="async" />
+        <img src="/images/menu-3.jpg" alt="サラダ" width="800" height="800" class="fade-in" loading="lazy" decoding="async" />
+        <img src="/images/menu-4.jpg" alt="日本酒" width="800" height="800" class="fade-in" loading="lazy" decoding="async" />
+      </div>
 
       <!-- Lightbox -->
       <dialog id="lightbox" style="padding:0;border:none;background:#000">
@@ -405,12 +399,9 @@
     })();
 
     // PWA: Service Worker 登録（準備ができたら sw.js を用意）
-    if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js', { scope: './' })
-        .catch(console.error);
-    });
-  }
+    if('serviceWorker' in navigator){
+      window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+    }
   </script>
 </body>
 </html>
