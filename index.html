@@ -411,7 +411,7 @@
     // PWA: Service Worker 登録（準備ができたら sw.js を用意）
     if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js', { scope: './' })
+      navigator.serviceWorker.register('./sw.js', { scope: './' })
         .catch(console.error);
     });
   }
