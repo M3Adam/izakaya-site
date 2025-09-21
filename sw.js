@@ -1,17 +1,13 @@
 ﻿// sw.js（安定版）
-const VERSION = "v3";              // ← キャッシュ更新時は v3, v4 と上げる
+const VERSION = "v4";              // ← キャッシュ更新時は v3, v4 と上げる
 const PRECACHE = ["./", "./index.html"]; // 必ず存在する最低限だけ
 
 // sw.js v3 — sitemap/robots/verification を Service Worker の対象外にする
 
-const CACHE = 'emura-cache-v3';
+const CACHE = 'emura-cache-v4';
 const ASSETS = [
   './',                // トップ
   './index.html',
-  './styles.css',
-  './app.js',
-  // 必要に応じて主要画像などを列挙
-  // './images/building/entrance.jpg',
 ];
 
 // インストール：主要アセットを事前キャッシュ
