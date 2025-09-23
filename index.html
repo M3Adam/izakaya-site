@@ -6,7 +6,9 @@
   <title>居酒屋 えむら｜須坂駅前の居酒屋</title>
   <meta name="description" content="須坂駅前の居酒屋 えむら。旬の食材と地酒をご用意。ご予約はお電話で。" />
   <meta name="format-detection" content="telephone=no" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="apple-touch-icon" href="/izakaya-site/images/icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="canonical" href="https://m3adam.github.io/izakaya-site/" />
 
   <!-- OGP / Twitter Card -->
@@ -28,8 +30,7 @@
   <link rel="preload" as="image" href="./images/hero.jpg" fetchpriority="high">
   -->
 
-  <!-- PWA（任意だが設置） -->
-  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="manifest" href="/izakaya-site/manifest.webmanifest">
 
   <meta name="google-site-verification" content="ErvK5HOZSzQBInb9iKeDvh-IyXCg9e3mYFpg6Xg-Njg" />
 <!-- Google tag (gtag.js) -->
@@ -421,7 +422,7 @@
     // PWA: Service Worker 登録（準備ができたら sw.js を用意）
     if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js', { scope: './' })
+      navigator.serviceWorker.register('./sw.js', { scope: './', updateViaCache: 'none' })
         .catch(console.error);
     });
   }
