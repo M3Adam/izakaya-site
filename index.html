@@ -420,12 +420,22 @@
     })();
 
     // PWA: Service Worker 登録（準備ができたら sw.js を用意）
-    if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js', { scope: './', updateViaCache: 'none' })
-        .catch(console.error);
+    (async () => {
+  if (!('serviceWorker' in navigator)) return;
+  try {
+    // サブパス外の古い登録があれば掃除（安全策）
+    const regs = await navigator.serviceWorker.getRegistrations();
+    for (const r of regs) if (!r.scope.includes('/izakaya-site/')) await r.unregister();
+
+    // ★ GitHub Pages のサブパスに固定
+    await navigator.serviceWorker.register('/izakaya-site/sw.js', {
+      scope: '/izakaya-site/',
+      updateViaCache: 'none'
     });
+  } catch (e) {
+    console.error('SW register error:', e);
   }
+  })();
   </script>
 </body>
 </html>
